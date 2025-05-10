@@ -1,10 +1,10 @@
 import React from "react";
-export const LOGO = () => (
+export const LOGO = ({ width , height }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
-    width="212"
-    height="60"
+    width={width}
+    height={height}
     viewBox="0 0 212 60"
     fill="none"
   >

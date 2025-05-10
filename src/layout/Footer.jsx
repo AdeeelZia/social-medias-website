@@ -1,87 +1,99 @@
 import React from "react";
 import { LOGO } from "../svg/Logo";
 import { Heading } from "../components/common/common";
-import Input from "../components/common/Input";
 import {
   FACEBOOK_ICON,
   INSTAGRAM_ICON,
   TWITTER_ICON,
   RIGHT_ARROW_ICON,
-  TOP_ARROW_ICON,
 } from "../svg/FooterIconsGrabbar";
 
-const FooterLinks = ({ title, links }) => {
-  return (
-    <div className="w-full sm:w-1/2 md:w-1/4 lg:w-1/4">
-      <Heading text={title} gradient customStyleHeading="!text-start" />
-      <ul className="flex flex-col gap-y-5 text-[#565656]">
-        {links.map((link, index) => (
-          <li key={index}>{link}</li>
-        ))}
-      </ul>
-    </div>
-  );
-};
 
+const FooterLinkGroup = ({ title, links }) => (
+  <div className="w-full sm:w-auto">
+    <Heading
+      level={3}
+      text={title}
+      customStyleHeading="!text-start mb-4"
+      gradient
+    />
+    <ul className="space-y-2">
+      {links.map((link, index) => (
+        <li
+          key={index}
+          className="text-sm font-normal text-[#565656] cursor-pointer hover:text-black transition-colors"
+        >
+          {link}
+        </li>
+      ))}
+    </ul>
+  </div>
+);
+
+// Main Footer component
 const Footer = () => {
   const socialIcons = [FACEBOOK_ICON, INSTAGRAM_ICON, TWITTER_ICON];
 
-  const footerLinksData = [
+  const footerLinkSections = [
     {
       title: "Quick Links",
-      links: ["Why Social Medias", "What We Do", "Pricing", "FAQS", "Login"],
+      links: ["Why Social Medias", "What We Do", "Pricing", "Faqs", "Login"],
     },
     {
       title: "Legal",
-      links: ["Terms of Service", "Privacy Policy", "Contact Us"],
+      links: ["Terms of Service", "Privacy Policy", "Contact"],
     },
   ];
 
   return (
-    <footer>
-      <div className="SMC px-4 py-6 md:px-8 lg:px-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div className="text-center sm:text-left">
-          <LOGO />
-          <p className="text-justify text-base font-normal text-[#565656] py-1 lg:w-[75%] mx-auto">
-            Social Medias are feeds that display the content from your connected
-            social accounts and let you take part in industry conversations. You
-            can use streams to monitor activity across all of your accounts.
+    <footer className="bg-gray-100 py-10 px-4 sm:px-8">
+      <div className="max-w-7xl mx-auto flex flex-col gap-10 md:flex-row md:justify-between">
+        {/* Left Column */}
+        <div className="md:w-1/2">
+          <div className="mb-4">
+            <LOGO width={178} height={49} />
+          </div>
+          <p className="text-sm text-[#565656] leading-6 mb-4 md:w-2/3">
+            Social media feeds display content from your connected social
+            accounts and help you engage in industry conversations. Use streams
+            to monitor activity across all accounts.
           </p>
-          <div className="flex justify-center items-center gap-x-4 py-3 lg:justify-start">
-            {socialIcons.map((IconComponent, index) => (
-              <IconComponent key={index} />
+          <div className="flex gap-4">
+            {socialIcons.map((Icon, idx) => (
+              <Icon key={idx} />
             ))}
           </div>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-6">
-          {footerLinksData.map((item, index) => (
-            <FooterLinks key={index} title={item.title} links={item.links} />
-          ))}
-        </div>
-
-        <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
-          <div className="text-lg font-bold gradient-text py-2">Subscribe</div>
-          <p className="text-[#565656] pb-2">
-            Subscribe to get the latest property, blog news from us.
-          </p>
-          <div className="flex items-center border rounded-2xl px-2 py-[5px] gap-2">
-            <Input
-              placeholder="Enter your email"
-              customStyleInput="!border-none"
+        {/* Right Column */}
+        <div className="md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-8">
+          {/* Link Groups */}
+          {footerLinkSections.map((section, index) => (
+            <FooterLinkGroup
+              key={index}
+              title={section.title}
+              links={section.links}
             />
-            <button className="p-2 rounded-full bg-gradient-to-b from-[#8933BA] to-[#D82370] hover:opacity-90">
-              <RIGHT_ARROW_ICON />
-            </button>
+          ))}
+
+          {/* Subscribe */}
+          <div className="col-span-1 sm:col-span-2">
+            <Heading level={3} text="Subscribe" />
+            <p className="text-sm text-[#565656] mb-3">
+              Subscribe to get the latest property and blog updates from us.
+            </p>
+            <div className="flex items-center border rounded overflow-hidden max-w-md">
+              <input
+                type="text"
+                placeholder="Email Address"
+                className="flex-1 px-4 py-2 text-sm outline-none"
+              />
+              <button className="bg-black text-white p-2">
+                <RIGHT_ARROW_ICON />
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div className="mt-8 px-4 sm:px-8 lg:px-16 h-12 flex justify-between items-center bg-gradient-to-b from-[#8933BA] to-[#D82370]">
-        <p className="text-xs sm:text-base text-white">
-          Social Medias developed by AFS Square © 2022
-        </p>
-        <TOP_ARROW_ICON />
       </div>
     </footer>
   );
