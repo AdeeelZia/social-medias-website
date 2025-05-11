@@ -22,7 +22,7 @@ export default function Header() {
     <header className="sm-container">
       <nav className="flex justify-between items-center">
         {/* Logo (with width control) */}
-        <div className="w-8">
+        <div className="w-50">
           <LOGO />
         </div>
 
