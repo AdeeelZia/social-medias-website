@@ -8,7 +8,6 @@ import {
   RIGHT_ARROW_ICON,
 } from "../svg/FooterIconsGrabbar";
 
-
 const FooterLinkGroup = ({ title, links }) => (
   <div className="w-full sm:w-auto">
     <Heading
@@ -46,7 +45,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gray-100 py-10 px-4 sm:px-8">
+    <footer className="py-10 px-4 sm:px-8">
       <div className="max-w-7xl mx-auto flex flex-col gap-10 md:flex-row md:justify-between">
         {/* Left Column */}
         <div className="md:w-1/2">

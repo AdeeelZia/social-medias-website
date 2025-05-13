@@ -11,39 +11,74 @@ import {
   ANALYTICS_ICON,
   TOP_TREND,
   TIME_ICON,
+  USERS_ICON,
+  CONTENT_ICON,
 } from "../../svg/HomeIconsGrabbar";
 
 export default function Home() {
   const Services = [
     {
-      // Icon: USER_ICON,
+      Icon: USER_ICON,
       title: "Light up your profiles",
       description:
         "Schedule and publish content to all of your social profiles, track effectiveness in real time, and crank the volume on your top-performing content.",
     },
     {
-      // Icon: ANALYTICS_ICON,
+      Icon: ANALYTICS_ICON,
       title: "Plan your content with ease",
       description:
         "View all of your social media content in one calendar. Easily see all your scheduled and published content, create new posts, and organize existing ones.",
     },
     {
-      // Icon: TIME_ICON,
+      Icon: TIME_ICON,
       title: "Stay on top of trends",
       description:
         "Set up customizable streams that let you monitor trends and stay notified about your business, customers, competitors, or any topic that you’re curious about.",
     },
     {
-      // Icon: TIME_ICON,
+      Icon: TIME_ICON,
       title: "Post on time, every time",
       description:
         "Get actionable insights on the best times to post without the heavy data crunching. We have Professional Team to help you to grow your reach and get more business on social media.",
     },
   ];
+
+  const managerSocialMedias = [
+    {
+      icon: USERS_ICON,
+      title: "Light up your profiles",
+      description:
+        "Schedule and publish content to all of your social profiles, track effectiveness in real time.",
+    },
+    {
+      icon: CONTENT_ICON,
+      title: "Plan your content with ease",
+      description:
+        "View all of your social media content in one calendar. Easily see all your scheduled and published content.",
+    },
+    {
+      icon: TOP_TREND,
+      title: "Stay on top of trends by posting on time",
+      description:
+        "Set up customizable streams that let you monitor trends and stay notified. Get actionable insights on the best times to post without the heavy data crunching.",
+    },
+  ];
+
   return (
     <>
       <HeroSection />
-      <FeaturesSection />
+      <div>
+        {managerSocialMedias.map((item, index) => {
+          return (
+            <FeaturesSection
+              key={index}
+              icon={item.icon}
+              text={item.title}
+              description={item.description}
+            />
+          );
+        })}
+      </div>
       <CallToActionSection />
       <DecisionSection />
 

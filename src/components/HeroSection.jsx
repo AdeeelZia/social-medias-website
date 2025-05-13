@@ -1,4 +1,5 @@
 import React from "react";
+import { ARROW_RIGHT_ICON } from "../svg/HomeIconsGrabbar";
 
 const HeroSection = () => {
   return (
@@ -27,7 +28,9 @@ const HeroSection = () => {
               Get Started
             </button>
             <div className="py-2 sm:p-0 md:pt-2 lg:pt-0 flex items-center gap-x-3">
-              <div className="border border-[#8933BA] p-2 rounded-md"></div>
+              <div className="border border-[#8933BA] p-2 rounded-md">
+                <ARROW_RIGHT_ICON />
+              </div>
               <p className="text-sm font-bold uppercase gradient-text">
                 Book a Demo Today
               </p>

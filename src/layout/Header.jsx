@@ -7,10 +7,10 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
-    { element: "WHY SOCIAL MEDIAS", path: "/" },
-    { element: "What we do", path: "/" },
-    { element: "PRICING", path: "/" },
-    { element: "FAQs", path: "/" },
+    { element: "Why Social Medias", path: "/" },
+    { element: "What we do", path: "/services" },
+    { element: "Pricing", path: "/pricing" },
+    { element: "Faqs", path: "/faqs" },
     { element: "Login", path: "/" },
   ];
 
@@ -20,93 +20,68 @@ export default function Header() {
 
   return (
     <header className="sm-container">
-      <nav className="flex justify-between items-center">
-        {/* Logo (with width control) */}
-        <div className="w-50">
-          <LOGO />
-        </div>
-
-        {/* Toggle Button (Hamburger / Close Icon) */}
-        <button
-          onClick={toggleMenu}
-          className="lg:hidden focus:outline-none"
-          aria-label="Toggle menu"
-        >
+      <nav className="flex justify-between items-center h-11">
+        <Link>
+          <LOGO className="w-40" />
+        </Link>
+        <Button onClick={toggleMenu} customStyleButton="!px-0 lg:hidden">
           {isMenuOpen ? (
-            // Close Icon (X)
             <svg
-              width="24"
-              height="24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
+              width="24px"
+              height="24px"
+              fill="none"
+              viewBox="0 0 24 24"
             >
               <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
+                fill="#000000"
+                d="M18.3 5.71a1 1 0 0 0-1.41 0L12 10.59 7.11 5.7A1 1 0 0 0 5.7 7.11L10.59 12l-4.89 4.89a1 1 0 1 0 1.41 1.41L12 13.41l4.89 4.89a1 1 0 0 0 1.41-1.41L13.41 12l4.89-4.89a1 1 0 0 0 0-1.4z"
               />
             </svg>
           ) : (
-            // Hamburger Icon
             <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
               xmlns="http://www.w3.org/2000/svg"
+              width="24px"
+              height="24px"
+              fill="none"
+              viewBox="0 0 20 20"
             >
               <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4 6h16M4 12h16M4 18h16"
+                fill="#000000"
+                fillRule="evenodd"
+                d="M19 4a1 1 0 01-1 1H2a1 1 0 010-2h16a1 1 0 011 1zm0 6a1 1 0 01-1 1H2a1 1 0 110-2h16a1 1 0 011 1zm-1 7a1 1 0 100-2H2a1 1 0 100 2h16z"
               />
             </svg>
           )}
-        </button>
+        </Button>
 
-        {/* Desktop Menu */}
-        <div className="hidden lg:flex items-center">
-          {menuItems.map((item, index) => (
-            <Link key={index} to={item.path} className="pl-14">
-              <p>{item.element}</p>
+        <div className="hidden lg:flex lg:gap-7">
+          {menuItems.map((items, index) => (
+            <Link to={index.path}>
+              <p className="text-sm font-medium text-[#C4C4C4]">
+                {items.element}
+              </p>
             </Link>
           ))}
-          <Button text="GET STARTED" gradient={true} />
         </div>
-
-        {/* Full-Screen Mobile Menu */}
-        <div
-          className={`absolute top-16 p-5 transition-all duration-300 ease-in-out transform ${
-            isMenuOpen
-              ? "opacity-100 scale-100"
-              : "opacity-0 scale-95 pointer-events-none"
-          } lg:hidden`}
-        >
-          <div className="mt-20">
-            {menuItems.map((item, index) => (
-              <Link
-                key={index}
-                to={item.path}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <p className="text-sm font-semibold leading-10">
-                  {item.element}
-                </p>
-              </Link>
-            ))}
-            <Button
-              text="GET STARTED"
-              gradient={true}
-              customStyleButton="mt-6"
-            />
-          </div>
-        </div>
+        <Button
+          text="Get Started"
+          gradient={true}
+          customStyleButton="hidden lg:flex"
+        />
       </nav>
+      {isMenuOpen && (
+        <div className="absolute right-8 w-1/2 p-4 shadow-2xl bg-white">
+          {menuItems.map((items, index) => (
+            <Link to={index.path}>
+              <p className="text-sm font-medium my-2 text-[#C4C4C4]">
+                {items.element}
+              </p>
+            </Link>
+          ))}
+          <Button text="Get Started" gradient={true} customStyleButton="" />
+        </div>
+      )}
     </header>
   );
 }
