@@ -1,5 +1,4 @@
 import React from "react";
-import FeaturesSection from "../../components/FeaturesSection";
 import ServicesSection from "../../components/ServicesSection";
 import NewsletterSection from "../../components/NewsletterSection";
 import { Heading, Button } from "../../components/common/common";
@@ -11,7 +10,9 @@ import {
   USERS_ICON,
   CONTENT_ICON,
   ARROW_RIGHT_ICON,
+  SHIELD_ICON,
 } from "../../svg/HomeIconsGrabbar";
+import FeaturesSection from "../../components/FeaturesSection";
 
 export default function Home() {
   const Services = [
@@ -41,24 +42,41 @@ export default function Home() {
     },
   ];
 
-  const managerSocialMedias = [
+  // const managerSocialMedias = [
+  //   {
+  //     icon: USERS_ICON,
+  //     title: "Light up your profiles",
+  //     description:
+  //       "Schedule and publish content to all of your social profiles, track effectiveness in real time.",
+  //   },
+  //   {
+  //     icon: CONTENT_ICON,
+  //     title: "Plan your content with ease",
+  //     description:
+  //       "View all of your social media content in one calendar. Easily see all your scheduled and published content.",
+  //   },
+  //   {
+  //     icon: TOP_TREND,
+  //     title: "Stay on top of trends by posting on time",
+  //     description:
+  //       "Set up customizable streams that let you monitor trends and stay notified. Get actionable insights on the best times to post without the heavy data crunching.",
+  //   },
+  // ];
+
+  const featuresData = [
     {
       icon: USERS_ICON,
-      title: "Light up your profiles",
+      heading: "Light up your profiles",
       description:
         "Schedule and publish content to all of your social profiles, track effectiveness in real time.",
+      iconBg: "bg-emerald-400",
     },
     {
-      icon: CONTENT_ICON,
-      title: "Plan your content with ease",
+      icon: USERS_ICON,
+      heading: "Monitor Conversations",
       description:
-        "View all of your social media content in one calendar. Easily see all your scheduled and published content.",
-    },
-    {
-      icon: TOP_TREND,
-      title: "Stay on top of trends by posting on time",
-      description:
-        "Set up customizable streams that let you monitor trends and stay notified. Get actionable insights on the best times to post without the heavy data crunching.",
+        "Keep track of industry topics and respond directly from the dashboard.",
+      iconBg: "bg-indigo-400",
     },
   ];
 
@@ -80,8 +98,8 @@ export default function Home() {
             </p>
             <div className="flex gap-4 items-center">
               <Button text={"Start Today"} gradient />
-              <div className="border border-solid border-[#8933BA] w-10 h-10 rounded-sm flex justify-center items-center">
-                <ARROW_RIGHT_ICON />
+              <div className="border border-solid border-[#8933BA] w-10 h-10 rounded-sm flex justify-center items-center hover:bg-gradient-to-r from-[#8933BA] to-[#D82370]">
+                <ARROW_RIGHT_ICON className="hover:bg-white" />
               </div>
               <span className="text-[#8933BA]">Book a Demo Today</span>
             </div>
@@ -97,18 +115,13 @@ export default function Home() {
         </div>
       </div>
 
-      <div>
-        {managerSocialMedias.map((item, index) => {
-          return (
-            <FeaturesSection
-              key={index}
-              icon={item.icon}
-              text={item.title}
-              description={item.description}
-            />
-          );
-        })}
-      </div>
+      <FeaturesSection
+        heading="Manage social media in one place"
+        description="Social Medias are feeds that display the content from your connected social accounts and let you take part in industry conversations. You can use streams to monitor activity across all of your accounts."
+        imageSrc="/images/social.jpg"
+        features={featuresData}
+      />
+
       <div className="md:pb-24">
         <div
           className="bg-center bg-cover h-96"

@@ -124,13 +124,14 @@ export const RIGHT_ARROW_ICON = () => (
   </svg>
 );
 
-export const TOP_ARROW_ICON = () => (
+export const TOP_ARROW_ICON = ({ className }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="43"
     height="42"
     viewBox="0 0 43 42"
     fill="none"
+    className={className}
   >
     <g clipPath="url(#clip0_45_463)">
       <path

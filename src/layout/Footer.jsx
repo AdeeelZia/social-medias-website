@@ -1,26 +1,27 @@
 import React from "react";
 import { LOGO } from "../svg/Logo";
-import { Heading } from "../components/common/common";
+import { Heading, Input, Button } from "../components/common/common";
 import {
   FACEBOOK_ICON,
   INSTAGRAM_ICON,
   TWITTER_ICON,
   RIGHT_ARROW_ICON,
+  TOP_ARROW_ICON,
 } from "../svg/FooterIconsGrabbar";
 
 const FooterLinkGroup = ({ title, links }) => (
-  <div className="w-full sm:w-auto">
+  <div>
     <Heading
       level={3}
       text={title}
-      customStyleHeading="!text-start mb-4"
+      customStyleHeading="!text-lg !font-semibold !text-start mb-2"
       gradient
     />
     <ul className="space-y-2">
       {links.map((link, index) => (
         <li
           key={index}
-          className="text-sm font-normal text-[#565656] cursor-pointer hover:text-black transition-colors"
+          className="text-sm text-[#565656] cursor-pointer hover:text-black transition-colors"
         >
           {link}
         </li>
@@ -29,7 +30,6 @@ const FooterLinkGroup = ({ title, links }) => (
   </div>
 );
 
-// Main Footer component
 const Footer = () => {
   const socialIcons = [FACEBOOK_ICON, INSTAGRAM_ICON, TWITTER_ICON];
 
@@ -45,28 +45,22 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="py-10 px-4 sm:px-8">
-      <div className="max-w-7xl mx-auto flex flex-col gap-10 md:flex-row md:justify-between">
-        {/* Left Column */}
-        <div className="md:w-1/2">
-          <div className="mb-4">
-            <LOGO width={178} height={49} />
-          </div>
-          <p className="text-sm text-[#565656] leading-6 mb-4 md:w-2/3">
-            Social media feeds display content from your connected social
-            accounts and help you engage in industry conversations. Use streams
-            to monitor activity across all accounts.
-          </p>
-          <div className="flex gap-4">
-            {socialIcons.map((Icon, idx) => (
-              <Icon key={idx} />
-            ))}
-          </div>
+    <footer>
+      <div className="sm-container">
+        <LOGO className="max-w-44" />
+        <p className="text-sm mb-4 text-[#565656]">
+          Social media feeds display content from your connected social accounts
+          and help you engage in industry conversations. Use streams to monitor
+          activity across all accounts.
+        </p>
+
+        <div className="flex gap-2 mb-4">
+          {socialIcons.map((Icons, index) => (
+            <Icons key={index} />
+          ))}
         </div>
 
-        {/* Right Column */}
         <div className="md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-8">
-          {/* Link Groups */}
           {footerLinkSections.map((section, index) => (
             <FooterLinkGroup
               key={index}
@@ -75,24 +69,33 @@ const Footer = () => {
             />
           ))}
 
-          {/* Subscribe */}
           <div className="col-span-1 sm:col-span-2">
-            <Heading level={3} text="Subscribe" />
-            <p className="text-sm text-[#565656] mb-3">
+            <Heading
+              level={3}
+              text="Subscribe"
+              customStyleHeading="!text-lg !font-semibold !text-start mb-3.5"
+              gradient
+            />
+            <p className="text-sm text-[#565656] mb-3.5">
               Subscribe to get the latest property and blog updates from us.
             </p>
-            <div className="flex items-center border rounded overflow-hidden max-w-md">
-              <input
-                type="text"
+            <div className="w-full py-1 px-3 flex items-center rounded-[0.938rem] overflow-hidden border">
+              <Input
                 placeholder="Email Address"
-                className="flex-1 px-4 py-2 text-sm outline-none"
+                customStyleInput="!w-full !text-sm !p-3 !border-none !rounded-none !outline-none"
               />
-              <button className="bg-black text-white p-2">
+              <Button customStyleButton="!p-3 !rounded-full" gradient>
                 <RIGHT_ARROW_ICON />
-              </button>
+              </Button>
             </div>
           </div>
         </div>
+      </div>
+      <div className="w-full flex justify-between items-center px-4 bg-gradient-to-r from-[#8933BA] to-[#D82370]">
+        <p className="text-[.65rem] text-white">
+          Social Medias developed by AFS Square © 2022
+        </p>
+        <TOP_ARROW_ICON className="w-8" />
       </div>
     </footer>
   );

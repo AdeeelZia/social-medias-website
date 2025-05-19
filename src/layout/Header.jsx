@@ -1,17 +1,18 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { LOGO } from "../svg/Logo";
 import { Button } from "../components/common/common";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const menuItems = [
     { element: "Why Social Medias", path: "/" },
     { element: "What we do", path: "/services" },
     { element: "Pricing", path: "/pricing" },
     { element: "Faqs", path: "/faqs" },
-    { element: "Login", path: "/" },
+    { element: "Login", path: "/login" },
   ];
 
   const toggleMenu = () => {
@@ -55,31 +56,47 @@ export default function Header() {
           )}
         </Button>
 
-        <div className="hidden lg:flex lg:gap-7">
+        <div className="hidden lg:flex lg:items-center lg:gap-7">
           {menuItems.map((items, index) => (
-            <Link to={index.path}>
-              <p className="text-sm font-medium text-[#C4C4C4]">
+            <Link to={items.path} key={index.id}>
+              <p
+                className={`text-sm font-light uppercase tracking-[0.2em] text-[#C4C4C4] ${
+                  location.pathname === items.path
+                    ? "bg-gradient-to-r from-[#8933BA] to-[#D82370] text-transparent bg-clip-text"
+                    : "text-[#C4C4C4] hover:bg-gradient-to-r hover:from-[#8933BA] hover:to-[#D82370] hover:text-transparent hover:bg-clip-text"
+                }`}
+              >
                 {items.element}
               </p>
             </Link>
           ))}
+          <Button
+            text="Get Started"
+            gradient={true}
+            customStyleButton="hidden lg:flex hover:opacity-85 hover:scale-95"
+          />
         </div>
-        <Button
-          text="Get Started"
-          gradient={true}
-          customStyleButton="hidden lg:flex"
-        />
       </nav>
       {isMenuOpen && (
-        <div className="absolute right-8 w-1/2 p-4 shadow-2xl bg-white">
+        <div className="absolute scale- right-8 w-1/2 p-4 shadow-2xl bg-white">
           {menuItems.map((items, index) => (
-            <Link to={index.path}>
-              <p className="text-sm font-medium my-2 text-[#C4C4C4]">
+            <Link to={items.path} key={index.id}>
+              <p
+                className={`text-sm font-medium my-2 text-[#C4C4C4] ${
+                  location.pathname === items.path
+                    ? "bg-gradient-to-r from-[#8933BA] to-[#D82370] text-transparent bg-clip-text"
+                    : "text-[#C4C4C4] hover:bg-gradient-to-r hover:from-[#8933BA] hover:to-[#D82370] hover:text-transparent hover:bg-clip-text"
+                }`}
+              >
                 {items.element}
               </p>
             </Link>
           ))}
-          <Button text="Get Started" gradient={true} customStyleButton="" />
+          <Button
+            text="Get Started"
+            gradient={true}
+            customStyleButton="hover:opacity-85 hover:scale-95"
+          />
         </div>
       )}
     </header>
