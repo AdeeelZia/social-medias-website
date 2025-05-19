@@ -1,11 +1,12 @@
 import React from "react";
-export const FACEBOOK_ICON = () => (
+export const FACEBOOK_ICON = ({ customClass }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="20"
     height="20"
     viewBox="0 0 20 20"
     fill="none"
+    className={customClass}
   >
     <path
       fillRule="evenodd"
@@ -29,13 +30,14 @@ export const FACEBOOK_ICON = () => (
   </svg>
 );
 
-export const INSTAGRAM_ICON = () => (
+export const INSTAGRAM_ICON = ({ customClass }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="20"
     height="20"
     viewBox="0 0 20 20"
     fill="none"
+    className={customClass}
   >
     <g clipPath="url(#clip0_45_488)">
       <path
@@ -64,13 +66,14 @@ export const INSTAGRAM_ICON = () => (
   </svg>
 );
 
-export const TWITTER_ICON = () => (
+export const TWITTER_ICON = ({ customClass }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="20"
     height="20"
     viewBox="0 0 20 20"
     fill="none"
+    className={customClass}
   >
     <g clipPath="url(#clip0_45_485)">
       <path
@@ -99,13 +102,14 @@ export const TWITTER_ICON = () => (
   </svg>
 );
 
-export const RIGHT_ARROW_ICON = () => (
+export const RIGHT_ARROW_ICON = ({ customClass }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="14"
     height="14"
     viewBox="0 0 14 14"
     fill="none"
+    className={customClass}
   >
     <path
       d="M1 7.00024H12.9999"
@@ -124,14 +128,14 @@ export const RIGHT_ARROW_ICON = () => (
   </svg>
 );
 
-export const TOP_ARROW_ICON = ({ className }) => (
+export const TOP_ARROW_ICON = ({ customClass }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="43"
     height="42"
     viewBox="0 0 43 42"
     fill="none"
-    className={className}
+    className={customClass}
   >
     <g clipPath="url(#clip0_45_463)">
       <path

@@ -1,91 +1,19 @@
 import React from "react";
 import ServicesSection from "../../components/ServicesSection";
+import FeaturesSection from "../../components/FeaturesSection";
 import NewsletterSection from "../../components/NewsletterSection";
 import { Heading, Button } from "../../components/common/common";
-import {
-  USER_ICON,
-  ANALYTICS_ICON,
-  TOP_TREND,
-  TIME_ICON,
-  USERS_ICON,
-  CONTENT_ICON,
-  ARROW_RIGHT_ICON,
-  SHIELD_ICON,
-} from "../../svg/HomeIconsGrabbar";
-import FeaturesSection from "../../components/FeaturesSection";
+import SideBar from "../../layout/SideBar";
 
 export default function Home() {
-  const Services = [
-    {
-      Icon: USER_ICON,
-      title: "Light up your profiles",
-      description:
-        "Schedule and publish content to all of your social profiles, track effectiveness in real time, and crank the volume on your top-performing content.",
-    },
-    {
-      Icon: ANALYTICS_ICON,
-      title: "Plan your content with ease",
-      description:
-        "View all of your social media content in one calendar. Easily see all your scheduled and published content, create new posts, and organize existing ones.",
-    },
-    {
-      Icon: TIME_ICON,
-      title: "Stay on top of trends",
-      description:
-        "Set up customizable streams that let you monitor trends and stay notified about your business, customers, competitors, or any topic that you’re curious about.",
-    },
-    {
-      Icon: TIME_ICON,
-      title: "Post on time, every time",
-      description:
-        "Get actionable insights on the best times to post without the heavy data crunching. We have Professional Team to help you to grow your reach and get more business on social media.",
-    },
-  ];
-
-  // const managerSocialMedias = [
-  //   {
-  //     icon: USERS_ICON,
-  //     title: "Light up your profiles",
-  //     description:
-  //       "Schedule and publish content to all of your social profiles, track effectiveness in real time.",
-  //   },
-  //   {
-  //     icon: CONTENT_ICON,
-  //     title: "Plan your content with ease",
-  //     description:
-  //       "View all of your social media content in one calendar. Easily see all your scheduled and published content.",
-  //   },
-  //   {
-  //     icon: TOP_TREND,
-  //     title: "Stay on top of trends by posting on time",
-  //     description:
-  //       "Set up customizable streams that let you monitor trends and stay notified. Get actionable insights on the best times to post without the heavy data crunching.",
-  //   },
-  // ];
-
-  const featuresData = [
-    {
-      icon: USERS_ICON,
-      heading: "Light up your profiles",
-      description:
-        "Schedule and publish content to all of your social profiles, track effectiveness in real time.",
-      iconBg: "bg-emerald-400",
-    },
-    {
-      icon: USERS_ICON,
-      heading: "Monitor Conversations",
-      description:
-        "Keep track of industry topics and respond directly from the dashboard.",
-      iconBg: "bg-indigo-400",
-    },
-  ];
-
   return (
     <>
-      <div className="sm-container bg-white overflow-hidden">
+    <SideBar />
+      {/* <div className="sm-container bg-white overflow-hidden">
         <div className="flex justify-between items-center gap-32">
           <div className="w-1/2">
             <Heading
+
               level={1}
               text={`Grow your reach and get more business with social media. Let's do this.`}
               customStyleHeading="!text-[42px] !text-start mb-[24px]"
@@ -191,7 +119,7 @@ export default function Home() {
           );
         })}
       </div>
-      <NewsletterSection />
+      <NewsletterSection /> */}
     </>
   );
 }

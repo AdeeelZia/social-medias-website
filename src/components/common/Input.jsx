@@ -6,7 +6,7 @@ const Input = ({
   placeholder,
   value,
   onChange,
-  customStyleInput,
+  customClass,
 }) => {
   return (
     <input
@@ -15,7 +15,7 @@ const Input = ({
       placeholder={placeholder}
       value={value}
       onChange={onChange}
-      className={`py-2 px-4 text-sm border text-[#56565680] ${customStyleInput}`}
+      className={`py-2 px-4 text-sm border text-[#56565680] ${customClass}`}
     />
   );
 };

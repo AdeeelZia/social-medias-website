@@ -1,5 +1,5 @@
 import React from "react";
-import { Heading, Button } from "./common/common";
+import { Heading, Button } from "../common/common";
 
 const PricingPlans = ({
   tag,
