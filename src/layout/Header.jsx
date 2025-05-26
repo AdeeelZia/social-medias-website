@@ -25,7 +25,7 @@ export default function Header() {
         <Link>
           <LOGO className="w-40" />
         </Link>
-        <Button onClick={toggleMenu} customStyleButton="!px-0 lg:hidden">
+        <Button onClick={toggleMenu} customClass="!px-0 lg:hidden">
           {isMenuOpen ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +73,7 @@ export default function Header() {
           <Button
             text="Get Started"
             gradient={true}
-            customStyleButton="hidden lg:flex hover:opacity-85 hover:scale-95"
+            customClass={`!text-white`}
           />
         </div>
       </nav>
@@ -95,7 +95,7 @@ export default function Header() {
           <Button
             text="Get Started"
             gradient={true}
-            customStyleButton="hover:opacity-85 hover:scale-95"
+            customClass={`!text-white`}
           />
         </div>
       )}

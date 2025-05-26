@@ -45,31 +45,34 @@ const Footer = () => {
   ];
 
   return (
-    <footer>
-      <div className="sm-container">
-        <LOGO className="max-w-44" />
-        <p className="text-sm mb-4 text-[#565656]">
-          Social media feeds display content from your connected social accounts
-          and help you engage in industry conversations. Use streams to monitor
-          activity across all accounts.
-        </p>
+    <footer className="bg-white border-t mt-10">
+      <div className="sm-container py-10 px-4 space-y-8">
+        {/* Top section: Logo and Description */}
+        <div>
+          <LOGO className="max-w-44 mb-4" />
+          <p className="text-sm text-[#565656] max-w-xl">
+            Social media feeds display content from your connected social accounts
+            and help you engage in industry conversations. Use streams to monitor
+            activity across all accounts.
+          </p>
+        </div>
 
-        <div className="flex gap-2 mb-4">
-          {socialIcons.map((Icons, index) => (
-            <Icons key={index} />
+        {/* Social Icons */}
+        <div className="flex gap-3">
+          {socialIcons.map((Icon, index) => (
+            <Icon key={index} className="w-6 h-6 hover:scale-110 transition-transform" />
           ))}
         </div>
 
-        <div className="md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-8">
+        {/* Grid Layout for Links and Subscription */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Footer Links */}
           {footerLinkSections.map((section, index) => (
-            <FooterLinkGroup
-              key={index}
-              title={section.title}
-              links={section.links}
-            />
+            <FooterLinkGroup key={index} title={section.title} links={section.links} />
           ))}
 
-          <div className="col-span-1 sm:col-span-2">
+          {/* Subscription Form */}
+          <div className="md:col-span-1">
             <Heading
               level={3}
               text="Subscribe"
@@ -79,23 +82,33 @@ const Footer = () => {
             <p className="text-sm text-[#565656] mb-3.5">
               Subscribe to get the latest property and blog updates from us.
             </p>
-            <div className="w-full py-1 px-3 flex items-center rounded-[0.938rem] overflow-hidden border">
+            <form className="w-full flex items-center border rounded-[0.938rem] overflow-hidden">
               <Input
                 placeholder="Email Address"
+                type="email"
                 customStyleInput="!w-full !text-sm !p-3 !border-none !rounded-none !outline-none"
+                aria-label="Email Address"
               />
-              <Button customStyleButton="!p-3 !rounded-full" gradient>
+              <Button
+                type="submit"
+                customStyleButton="!p-3 !rounded-full"
+                gradient
+              >
                 <RIGHT_ARROW_ICON />
               </Button>
-            </div>
+            </form>
           </div>
         </div>
       </div>
-      <div className="w-full flex justify-between items-center px-4 bg-gradient-to-r from-[#8933BA] to-[#D82370]">
-        <p className="text-[.65rem] text-white">
-          Social Medias developed by AFS Square © 2022
+
+      {/* Bottom Bar */}
+      <div className="w-full flex flex-col sm:flex-row justify-between items-center px-4 py-3 bg-gradient-to-r from-[#8933BA] to-[#D82370]">
+        <p className="text-[.65rem] text-white mb-2 sm:mb-0 text-center">
+          Social Medias developed by AFS Square © {new Date().getFullYear()}
         </p>
-        <TOP_ARROW_ICON className="w-8" />
+        <a href="#top" aria-label="Back to top">
+          <TOP_ARROW_ICON className="w-6 h-6 sm:w-8 sm:h-8" />
+        </a>
       </div>
     </footer>
   );

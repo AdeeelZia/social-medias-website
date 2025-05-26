@@ -3,17 +3,15 @@ import ServicesSection from "../../components/ServicesSection";
 import FeaturesSection from "../../components/FeaturesSection";
 import NewsletterSection from "../../components/NewsletterSection";
 import { Heading, Button } from "../../components/common/common";
-import SideBar from "../../layout/SideBar";
+import { ARROW_RIGHT_ICON } from "../../svg/HomeIconsGrabbar";
 
 export default function Home() {
   return (
     <>
-    <SideBar />
-      {/* <div className="sm-container bg-white overflow-hidden">
-        <div className="flex justify-between items-center gap-32">
-          <div className="w-1/2">
+      <div className="sm-container bg-white overflow-hidden">
+        <div className="md:flex justify-between items-center gap-32">
+          <div className="md:w-1/2">
             <Heading
-
               level={1}
               text={`Grow your reach and get more business with social media. Let's do this.`}
               customStyleHeading="!text-[42px] !text-start mb-[24px]"
@@ -24,15 +22,19 @@ export default function Home() {
               maximize the impact of your social marketing by providing
               real-time insights.
             </p>
-            <div className="flex gap-4 items-center">
-              <Button text={"Start Today"} gradient />
+            <div className="flex gap-4 items-center mb-[30px]">
+              <Button
+                text={"Start Today"}
+                gradient
+                customClass={`!text-white`}
+              />
               <div className="border border-solid border-[#8933BA] w-10 h-10 rounded-sm flex justify-center items-center hover:bg-gradient-to-r from-[#8933BA] to-[#D82370]">
                 <ARROW_RIGHT_ICON className="hover:bg-white" />
               </div>
               <span className="text-[#8933BA]">Book a Demo Today</span>
             </div>
           </div>
-          <div className="w-1/2">
+          <div className="md:w-1/2">
             <img
               width={568}
               height={460}
@@ -47,7 +49,7 @@ export default function Home() {
         heading="Manage social media in one place"
         description="Social Medias are feeds that display the content from your connected social accounts and let you take part in industry conversations. You can use streams to monitor activity across all of your accounts."
         imageSrc="/images/social.jpg"
-        features={featuresData}
+        // features={featuresData}
       />
 
       <div className="md:pb-24">
@@ -108,7 +110,7 @@ export default function Home() {
       </div>
 
       <div className="sm-container grid grid-cols-2 gap-x-14 gap-y-10">
-        {Services.map((item, index) => {
+        {/* {Services.map((item, index) => {
           return (
             <ServicesSection
               key={index}
@@ -117,9 +119,9 @@ export default function Home() {
               description={item.description}
             />
           );
-        })}
+        })} */}
       </div>
-      <NewsletterSection /> */}
+      <NewsletterSection />
     </>
   );
 }
