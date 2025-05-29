@@ -7,6 +7,8 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
+  const isAuthPage = location.pathname.startsWith("/auth");
+
   const menuItems = [
     { element: "Why Social Medias", path: "/" },
     { element: "What we do", path: "/services" },
@@ -20,7 +22,10 @@ export default function Header() {
   };
 
   return (
-    <header className="sm-container">
+    <header
+      className="sm-container"
+      style={{ backgroundColor: isAuthPage ? "#fff8fe" : "white" }}
+    >
       <nav className="flex justify-between items-center">
         <Link>
           <LOGO customClass="w-44 sm:w-48" />
