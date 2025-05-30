@@ -35,6 +35,7 @@ export default function SignUp() {
                 mainDiv="flex flex-col"
                 label="Password"
                 placeholder="*******"
+                icon={true}
               />
               <Button
                 text="Sign In"
@@ -51,7 +52,7 @@ export default function SignUp() {
               <p className="text-sm text-[#272B41]">
                 Already a member?
                 <Link
-                  to="/signup"
+                  to="/auth/signin"
                   className="text-transparent pl-2.5 bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500 font-medium hover:underline"
                 >
                   Sign In

@@ -35,13 +35,14 @@ export default function SignIn() {
                 mainDiv="flex flex-col"
                 label="Password"
                 placeholder="*******"
+                icon={true}
               />
               <div className="flex justify-between items-center gap-2">
                 <div className="flex items-center">
                   <Input type="checkbox" customClass="my-4" />
                   <span className="pl-2">Keep me logged in</span>
                 </div>
-                <span className="text-sm text-[#272B41] cursor-pointer hover:underline">
+                <span className="text-sm cursor-pointer hover:underline bg-gradient-to-r from-[#8933BA] to-[#D82370] text-transparent bg-clip-text">
                   Forgot Password?
                 </span>
               </div>
@@ -60,8 +61,8 @@ export default function SignIn() {
               <p className="text-sm text-[#272B41]">
                 Not a member yet?
                 <Link
-                  to="/signup"
-                  className="text-transparent pl-2.5 bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500 font-medium hover:underline"
+                  to="/auth/signup"
+                  className="pl-2.5 bg-gradient-to-r from-[#8933BA] to-[#D82370] text-transparent bg-clip-text font-medium hover:underline"
                 >
                   Sign Up
                 </Link>

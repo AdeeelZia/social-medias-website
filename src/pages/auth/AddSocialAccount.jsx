@@ -1,15 +1,34 @@
 import React from "react";
 import { LOGO } from "../../svg/Logo";
 import { Button, Heading } from "../../components/common/common";
+import {
+  FACEBOOK_ICON,
+  INSTAGRAM_ICON,
+  TWITTER_ICON,
+  YOUTUBE_ICON,
+  LINKDIN_ICON,
+} from "../../svg/SocialAccountIconsGrabbar";
 
 export default function SocialAccount() {
-  const SocialLinks = () => {
+  const SocialAccountsLinks = [
+    { icon: FACEBOOK_ICON, text: "Facebook" },
+    { icon: INSTAGRAM_ICON, text: "Instagram" },
+    { icon: TWITTER_ICON, text: "Twitter" },
+    { icon: LINKDIN_ICON, text: "Linkdin" },
+    { icon: YOUTUBE_ICON, text: "Youtube" },
+  ];
+
+  const SocialLinks = ({ icon, SocialName }) => {
+    const Icon = icon;
     return (
-      <>
-        <div className="p-4 w-[8rem] h-[5rem] border border-[#A7B1CE33]">
-          <p>Hello</p>
+      <div className="flex justify-center items-center">
+        <div className="p-4 w-[8rem] h-[6rem] border border-[#A7B1CE33]">
+          <Icon />
+          <p className="text-xs font-semibold text-center text-[#272B41]">
+            {SocialName}
+          </p>
         </div>
-      </>
+      </div>
     );
   };
 
@@ -36,14 +55,18 @@ export default function SocialAccount() {
               Choose a social network to add an account
             </p>
             <div className="mb-[30px] grid grid-cols-3 gap-4">
-              {[1,2,3,4,5].map((item) => {
+              {SocialAccountsLinks.map((item, index) => {
                 return (
-                  <SocialLinks />
-                )
+                  <SocialLinks
+                    key={index}
+                    icon={item.icon}
+                    SocialName={item.text}
+                  />
+                );
               })}
             </div>
             <div className="flex justify-center gap-4">
-              <Button text="Skip" customClass='border' />
+              <Button text="Skip" customClass="border" />
               <Button gradient text="Confirm" />
             </div>
           </div>

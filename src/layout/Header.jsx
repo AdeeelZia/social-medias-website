@@ -14,7 +14,7 @@ export default function Header() {
     { element: "What we do", path: "/services" },
     { element: "Pricing", path: "/pricing" },
     { element: "Faqs", path: "/faqs" },
-    { element: "Login", path: "/login" },
+    { element: "Login", path: "/auth/signin" },
   ];
 
   const toggleMenu = () => {
