@@ -45,30 +45,34 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-white border-t mt-10">
-      <div className="sm-container py-10 px-4 space-y-8">
-        {/* Top section: Logo and Description */}
-        <div>
+    <footer className="bg-white border-t border-[#C4C4C480] mt-10">
+      <div className="sm-container py-10 px-4 space-y-8 flex gap-32">
+        <div className="">
           <LOGO className="max-w-44 mb-4" />
           <p className="text-sm text-[#565656] max-w-xl">
-            Social media feeds display content from your connected social accounts
-            and help you engage in industry conversations. Use streams to monitor
-            activity across all accounts.
+            Social media feeds display content from your connected social
+            accounts and help you engage in industry conversations. Use streams
+            to monitor activity across all accounts.
           </p>
-        </div>
-
-        {/* Social Icons */}
-        <div className="flex gap-3">
-          {socialIcons.map((Icon, index) => (
-            <Icon key={index} className="w-6 h-6 hover:scale-110 transition-transform" />
-          ))}
+          <div className="flex gap-3">
+            {socialIcons.map((Icon, index) => (
+              <Icon
+                key={index}
+                className="w-6 h-6 hover:scale-110 transition-transform"
+              />
+            ))}
+          </div>
         </div>
 
         {/* Grid Layout for Links and Subscription */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-3 gap-24">
           {/* Footer Links */}
           {footerLinkSections.map((section, index) => (
-            <FooterLinkGroup key={index} title={section.title} links={section.links} />
+            <FooterLinkGroup
+              key={index}
+              title={section.title}
+              links={section.links}
+            />
           ))}
 
           {/* Subscription Form */}

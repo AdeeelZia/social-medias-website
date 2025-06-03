@@ -32,7 +32,7 @@ const LayoutWrapper = ({ children }) => {
     <>
       {!isDashboard && <Header />}
       {children}
-      {/* {!isDashboard && <Footer />} */}
+      {!isDashboard && <Footer />}
     </>
   );
 };
