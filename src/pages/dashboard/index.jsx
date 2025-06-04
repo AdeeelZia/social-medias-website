@@ -5,6 +5,9 @@ import DashboardFooter from "./DashboardFooter";
 import InfoCard from "../../components/ui/InfoCard";
 
 const Dashboard = () => {
+  const handleIconClick = () => {
+    console.log("Icon clicked from parent!");
+  };
   return (
     <div className="flex h-screen bg-[#f5f5f5]">
       <Sidebar />
@@ -15,6 +18,7 @@ const Dashboard = () => {
             title="Manage all of your social medias in one place"
             description="Easily keep all of your social media accounts active by publishing to any profile, page or channel at once. We recommend adding 2 social accounts to start but you can add even more later."
             buttonText="Add Account"
+            onIconClick={handleIconClick}
           />
           <InfoCard
             title="Save time by scheduling one post to multiple accounts"
