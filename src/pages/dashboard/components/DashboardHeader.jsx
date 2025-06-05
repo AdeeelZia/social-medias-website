@@ -1,16 +1,13 @@
 import React from "react";
-import { Heading } from "../../components/common/common";
-import { SEARCH_ICON, BELL_ICON } from "../../svg/DashboardIconsGrabbar";
+import { Heading } from "../../../components/common/common";
+import { SEARCH_ICON, BELL_ICON } from "../../../svg/DashboardIconsGrabbar";
 
-const DashboardHeader = () => {
+const DashboardHeader = ({ title, description }) => {
   return (
     <div className="flex justify-between items-center p-7 bg-[#f5f5f5]">
       <div>
-        <Heading level={1} text={`Home`} customClass={`!text-3xl`} />
-        <p className="text-sm text-gray-500">
-          Boost engagement and attract more followers by scheduling
-          consistently.
-        </p>
+        <Heading level={1} text={title} customClass={`!text-3xl`} />
+        <p className="text-sm text-gray-500">{description}</p>
       </div>
 
       <div className="flex items-center space-x-4">
@@ -27,7 +24,7 @@ const DashboardHeader = () => {
           <img
             src="/images/user.png"
             alt="User_Image"
-            className="w-8 h-8 rounded-full"
+            className="w-8 h-8 rounded-full object-cover"
           />
           <div>
             <div className="font-medium text-gray-800 text-sm">John Doe</div>

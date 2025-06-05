@@ -1,7 +1,7 @@
 import React from "react";
-import { Heading } from "../../components/common/common";
-import PricingCard from "../../components/ui/PricingCard";
-import NewsletterSection from "../../components/NewsletterSection";
+import { Heading } from "../components/common/common";
+import PricingCard from "../components/ui/PricingCard";
+import NewsletterSection from "../components/NewsletterSection";
 
 export default function Pricing() {
   const pricingData = [

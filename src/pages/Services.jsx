@@ -1,5 +1,5 @@
 import React from "react";
-import NewsletterSection from "../../components/NewsletterSection";
+import NewsletterSection from "../components/NewsletterSection";
 
 export default function Services() {
   return (

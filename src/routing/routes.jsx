@@ -1,16 +1,15 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Header from "../layout/Header";
-import {
-  Home,
-  Services,
-  Pricing,
-  Faqs,
-  SignIn,
-  SignUp,
-  AddSocialAccount,
-  Index,
-} from "../pages/pages";
+import Home from "../pages/Home";
+import Services from "../pages/Services";
+import Pricing from "../pages/Pricing";
+import Faqs from "../pages/Faqs";
+import SignIn from "../pages/auth/SignIn";
+import SignUp from "../pages/auth/SignUp";
+import AddSocialAccount from "../pages/auth/AddSocialAccount";
+import Index from "../pages/dashboard/Index";
+import CreatePost from "../pages/dashboard/CreatePost";
 import Footer from "../layout/Footer";
 
 const routes = [
@@ -21,7 +20,8 @@ const routes = [
   { path: "/auth/signin", element: <SignIn /> },
   { path: "/auth/signup", element: <SignUp /> },
   { path: "/auth/socialaccount", element: <AddSocialAccount /> },
-  { path: "/dashboard", element: <Index /> },
+  { path: "/dashboard/index", element: <Index /> },
+  { path: "/dashboard/createpost", element: <CreatePost /> },
 ];
 
 const LayoutWrapper = ({ children }) => {

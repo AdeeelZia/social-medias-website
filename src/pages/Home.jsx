@@ -1,8 +1,8 @@
 import React from "react";
-import NewsletterSection from "../../components/NewsletterSection";
-import { Heading, Button } from "../../components/common/common";
-import { ARROW_RIGHT_ICON } from "../../svg/HomeIconsGrabbar";
-import FeaturesSection from "../../components/FeaturesSection";
+import NewsletterSection from "../components/NewsletterSection";
+import { Heading, Button } from "../components/common/common";
+import { ARROW_RIGHT_ICON } from "../svg/HomeIconsGrabbar";
+import FeaturesSection from "../components/FeaturesSection";
 
 export default function Home() {
   const features = [
