@@ -28,11 +28,9 @@ const InfoCard = ({ title, description, buttonText }) => {
     const Icon = icon;
     return (
       <div className="flex justify-center items-center">
-        <div className="p-4 w-[8rem] h-[6rem] border border-[#A7B1CE33]">
+        <div className="p-4 w-full max-w-[10rem] h-[6rem] border border-[#A7B1CE33]">
           <Icon />
-          <p className="text-xs font-semibold text-center text-[#272B41]">
-            {SocialName}
-          </p>
+          <p className="text-xs font-semibold text-center text-[#272B41]">{SocialName}</p>
         </div>
       </div>
     );
@@ -53,19 +51,23 @@ const InfoCard = ({ title, description, buttonText }) => {
       </Button>
 
       <Modal open={open} onClose={onCloseModal} center>
-        <div className="p-4 w-[30rem] h-[28rem]">
-          <Heading level={2} text="Add an account to Social Medias" />
-          <p>
+        <div className="w-[30rem] h-[28rem]">
+          <Heading
+            level={2}
+            text="Add an account to Social Medias"
+            customClass={`!text-[1.375rem] mb-[12px] !text-[#272B41]`}
+          />
+          <p className="font-light text-[#5A5F7D] mb-[24px]">
             Choose each social network you want to connect and then authorize
             Social Medias to access your accounts.
           </p>
-          <span>
+          <span className="flex items-center gap-3">
             Add to:
             <Button customClass="!text-white" gradient>
               {buttonText}
             </Button>
           </span>
-          <div className="mb-[30px] grid grid-cols-3 gap-4">
+          <div className="my-[24px] grid grid-cols-3 gap-6">
             {SocialAccountsLinks.map((item, index) => {
               return (
                 <SocialLinks
@@ -76,9 +78,9 @@ const InfoCard = ({ title, description, buttonText }) => {
               );
             })}
           </div>
-          <div className="flex justify-center gap-4">
-            <Button text="Skip" customClass="border" />
-            <Button gradient text="Confirm" />
+          <div className="flex justify-end gap-4">
+            <Button text="Cancel" customClass="border" />
+            <Button text="Confirm" gradient />
           </div>
         </div>
       </Modal>

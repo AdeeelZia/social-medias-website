@@ -7,6 +7,10 @@ body {
 
 @layer {
   .sm-container {
-    @apply p-4 sm:px-8 xl:py-5 xl:px-[3.125rem] 2xl:container 2xl:mx-auto;
+    @apply p-4 sm:px-8 xl:px-[3.125rem] 2xl:container 2xl:mx-auto;
   }
+}
+
+.react-responsive-modal-modal {
+  @apply rounded-lg;
 }

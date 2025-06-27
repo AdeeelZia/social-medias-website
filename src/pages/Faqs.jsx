@@ -1,7 +1,6 @@
 import React from "react";
 import { Button, Heading } from "../components/common/common";
 import Accordion from "../components/ui/Accordion";
-import { FaqsItems } from "../utils/FaqsData";
 
 export default function Faqs() {
   return (
